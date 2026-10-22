@@ -49,6 +49,8 @@ def main(argv=None):
                 if truth:
                     write_json(config["data"]["ground_truth"], truth)
             samples = load_samples(config, args.full, args.sample_ids, check_videos=not args.annotations_only)
+            if args.check:
+                load_truth(config, samples)
             print(f"Validated {len(samples)} selected queries for {config['dataset']}")
             return 0
         samples = load_samples(config, args.full, args.sample_ids,

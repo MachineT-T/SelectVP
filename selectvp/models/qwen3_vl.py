@@ -35,7 +35,8 @@ class Qwen3VL:
         import torch
         messages = [{"role": "user", "content": [{"type": "video", "video": str(video), "fps": 1},
                                                   {"type": "text", "text": text}]}]
-        kwargs = {}
+        # Keep every preprocessed frame so ES title masks stay aligned.
+        kwargs = {"do_sample_frames": False}
         if is_white_frame is not None:
             kwargs["is_white_frame"] = list(is_white_frame)
         inputs = self.processor.apply_chat_template(messages, tokenize=True, add_generation_prompt=True,

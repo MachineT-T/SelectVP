@@ -19,9 +19,12 @@ opencv-python==4.12.0.88
 packaging==26.3
 pillow==11.3.0
 psutil==7.2.2
+qwen-vl-utils==0.0.14
 regex==2026.9.29
 requests==2.34.2
 safetensors==0.6.2
+scikit-learn==1.7.2
+scipy==1.15.3
 sympy==1.13.1
 tokenizers==0.22.2
 torch==2.6.0+cu126

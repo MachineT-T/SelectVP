@@ -157,6 +157,8 @@ for dataset in charades_sta activitynet qvhighlights; do
 done
 ```
 
+This checks query IDs and ground-truth windows without requiring videos.
+
 Keep the complete converted annotations even when running a subset of queries.
 
 ## 4. Run the datasets
@@ -292,3 +294,15 @@ are stored in `cache/<dataset>/`.
 | Cache is missing or stale | Rerun preprocessing with the same inputs and configuration; preserve cache sidecars. |
 | Output directory belongs to another run | Set `paths.output` to a new directory. |
 | BLIP-2 runs out of memory | Reduce `preprocessing.blip2.batch_size` with `--set`, using the same override throughout the new run. |
+
+## Regression checks
+
+Run the checks from the main environment:
+
+```bash
+python -m unittest discover -s tests -v
+```
+
+The checks use synthetic annotations and videos, a local test tokenizer, and a
+stub for model generation. They exercise annotation validation and real video
+processing without a GPU, dataset downloads, or model weights.
