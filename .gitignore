@@ -1,0 +1,39 @@
+# Archived local files and agent configuration
+/.trash/
+/.local/
+/.aws/
+/.codex/
+/.agents/
+
+# Python environments and build products
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv*/
+build/
+dist/
+.pytest_cache/
+.coverage*
+
+# Local datasets, caches, and generated results
+/data/
+/cache/
+/outputs/
+/results/
+*.safetensors
+*.pt
+*.pth
+*.whl
+
+# Local settings, manuscripts, and temporary files
+.env
+.env.*
+*.pdf
+*.log
+*.tmp
+*.bak
+*.swp
+*~
+.DS_Store
+.idea/
+.vscode/

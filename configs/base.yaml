@@ -1,0 +1,57 @@
+project_root: ..
+branches: [bl, es, od, km]
+model:
+  id: Qwen/Qwen3-VL-8B-Instruct
+  revision: 0c351dd01ed87e9c1b53cbc748cba10e6187ff3b
+  device_map: auto
+  dtype: bfloat16
+  attention: flash_attention_2
+  local_files_only: false
+  max_new_tokens: 128
+  do_sample: false
+video:
+  fps: 1
+  width: 336
+  height: 336
+  sampling: opencv_integer_fps
+prompts:
+  query: "Accurately pinpoint the event '{}' in the video, answer in the format: 'From x to y'."
+  bl: ""
+  es: ""
+  od: "Note that red bounding boxes have been marked in the video to indicate the objects you need to detect."
+  km: "Note that red triangular markers have been labeled on several key frames most relevant to the query. These markers indicate which frames are closely tied to your target event. Use these red triangular markers to accurately determine the frames of the target event."
+  verification: "Does the video segment match the event '{query}'? You must only answer 'yes' or 'no' in lowercase."
+preprocessing:
+  device: cuda
+  blip2:
+    name: blip2_image_text_matching
+    type: coco
+    batch_size: 32
+    fps: 1
+    feature_revision: null
+    text_cache: null
+  es:
+    similarity_threshold: 0.2
+    temporal_window_size: 21
+    boundary_index: legacy_masked_position
+    position: center
+    color: black
+    font_scale: 1.2
+  targets:
+    id: Qwen/Qwen2-VL-7B-Instruct
+    revision: eed13092ef92e448dd6875b2a00151bd3f7db0ac
+    max_new_tokens: 512
+    attention: flash_attention_2
+    local_files_only: false
+  detection:
+    id: rziga/mm_grounding_dino_large_all
+    revision: 0445d0a0ae5f0fa6be689cf7243d4d0ef4ba7de0
+    threshold: 0.55
+    local_files_only: false
+  keyframes:
+    id: openai/clip-vit-base-patch32
+    revision: c237dc49a33fc61debc9276459120b7eac67e7ef
+    top_k: 5
+    max_frames: 500
+    batch_size: 16
+    local_files_only: false

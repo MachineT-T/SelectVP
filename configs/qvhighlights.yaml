@@ -1,0 +1,16 @@
+extends: base.yaml
+dataset: qvhighlights
+evaluation: qvhighlights
+data:
+  source: data/annotations/qvhighlights/highlight_val_release.jsonl
+  annotations: data/annotations/qvhighlights/queries.json
+  ground_truth: data/annotations/qvhighlights/ground_truth.json
+  sample_ids: null
+  raw_dir: data/raw/qvhighlights
+  video_dir: data/videos/qvhighlights
+paths:
+  cache: cache/qvhighlights
+  output: outputs/qvhighlights/full
+preprocessing:
+  es:
+    temporal_window_size: 25

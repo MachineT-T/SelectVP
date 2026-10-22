@@ -1,0 +1,13 @@
+extends: base.yaml
+dataset: activitynet
+evaluation: single
+data:
+  source: data/annotations/activitynet/source.json
+  annotations: data/annotations/activitynet/queries.json
+  ground_truth: data/annotations/activitynet/ground_truth.json
+  sample_ids: null
+  raw_dir: data/raw/activitynet
+  video_dir: data/videos/activitynet
+paths:
+  cache: cache/activitynet
+  output: outputs/activitynet/full

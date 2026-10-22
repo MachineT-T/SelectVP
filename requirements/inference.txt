@@ -1,0 +1,14 @@
+# Install a CUDA-compatible torch/torchvision pair first, then this file.
+torch==2.4.1
+torchvision==0.19.1
+transformers==4.57.1
+accelerate==1.10.1
+numpy==2.2.6
+opencv-python==4.12.0.88
+PyYAML==6.0.3
+Pillow>=10,<12
+av==16.0.1
+qwen-vl-utils==0.0.14
+scipy==1.15.3
+scikit-learn==1.7.2
+# Optional for the frozen attention implementation: flash-attn==2.6.3

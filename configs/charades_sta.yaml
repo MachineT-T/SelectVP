@@ -1,0 +1,18 @@
+extends: base.yaml
+dataset: charades_sta
+evaluation: single
+data:
+  source: data/annotations/charades_sta/source.json
+  annotations: data/annotations/charades_sta/queries.json
+  ground_truth: data/annotations/charades_sta/ground_truth.json
+  sample_ids: null
+  raw_dir: data/raw/charades_sta
+  video_dir: data/videos/charades_sta
+paths:
+  cache: cache/charades_sta
+  output: outputs/charades_sta/full
+preprocessing:
+  es:
+    position: top_left
+    color: red
+    font_scale: 1.2
